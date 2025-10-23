@@ -22,7 +22,7 @@ title: Aisle & Grace
 baseurl: "/terms" # the subpath of your site, e.g. /blog
 
 # Build settings
-theme: minima
+remote_theme: "jekyll/minima@1e8a445"
 plugins:
   - jekyll-feed
 
