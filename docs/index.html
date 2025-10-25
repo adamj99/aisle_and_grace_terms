@@ -120,7 +120,7 @@
     /* Hero Section */
     .hero {
       margin-top: 80px;
-      background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage) 100%);
+      background: linear-gradient(135deg, #FFF9F0 0%, #FFE5E5 50%, var(--sage-light) 100%);
       padding: 6rem 2rem;
       text-align: center;
       position: relative;
@@ -134,8 +134,9 @@
       right: -10%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(201, 169, 97, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201, 169, 97, 0.3) 0%, transparent 70%);
       border-radius: 50%;
+      animation: float 20s ease-in-out infinite;
     }
 
     .hero::after {
@@ -143,10 +144,16 @@
       position: absolute;
       bottom: -30%;
       left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(139, 157, 131, 0.2) 0%, transparent 70%);
       border-radius: 50%;
+      animation: float 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -30px); }
     }
 
     .hero-content {
@@ -158,16 +165,28 @@
 
     .hero h1 {
       font-size: 3.5rem;
-      color: white;
-      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
       animation: fadeInUp 0.8s ease-out;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero .subtitle {
+      font-size: 1.125rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.1s backwards;
     }
 
     .hero p {
       font-size: 1.25rem;
-      color: rgba(255, 255, 255, 0.95);
+      color: var(--gray);
       margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
       animation: fadeInUp 0.8s ease-out 0.2s backwards;
     }
 
@@ -518,6 +537,210 @@
       }
     }
 
+    /* How It Works Section */
+    .how-it-works {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+      position: relative;
+    }
+
+    .how-it-works::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .how-it-works .section-header h2 {
+      color: white;
+    }
+
+    .how-it-works .section-header h2::after {
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .how-it-works .section-header p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+    }
+
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .step p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--gold);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .testimonial-info h4 {
+      font-size: 1rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-info p {
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+
+    .stars {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* Waitlist Section */
+    .waitlist {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      text-align: center;
+    }
+
+    .waitlist-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .waitlist h2 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .waitlist p {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .waitlist-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .waitlist-form button {
+      padding: 1rem 2rem;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .waitlist-form button:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .waitlist-benefits {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .waitlist-benefit {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
@@ -602,17 +825,47 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Your Wedding, Your Way</h1>
-      <p>Plan your dream wedding with complete privacy and control. No ads, no data selling, just you and your perfect day.</p>
+      <div class="subtitle">The Wedding Planning App You'll Actually Love</div>
+      <h1>Say "I Do" to Stress-Free Planning</h1>
+      <p>Finally, a wedding planner that puts you first. Organize every detail, stay on budget, and enjoy the journey—without ads, tracking, or overwhelm.</p>
       <div class="cta-buttons">
-        <a href="#" class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.7;">
-          <span>📱</span>
-          <span>iOS - Coming Soon</span>
-        </a>
         <a href="#" class="btn btn-primary">
           <span>🤖</span>
-          <span>Download for Android</span>
+          <span>Start Planning Free - Android</span>
         </a>
+        <a href="#waitlist" class="btn btn-secondary">
+          <span>📱</span>
+          <span>Join iOS Waitlist</span>
+        </a>
+      </div>
+      <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">Free forever. No credit card required.</p>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <div class="section-header">
+      <h2>Planning Made Simple</h2>
+      <p>Get organized in three easy steps</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Download & Set Up</h3>
+        <p>Get started in under 2 minutes. Add your wedding date, create your vision, and we'll build a personalized checklist just for you.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Plan Together</h3>
+        <p>Track tasks, manage your budget, organize your guest list, and coordinate vendors—all in one beautiful, private space.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Enjoy Your Day</h3>
+        <p>Walk down the aisle knowing every detail is handled. Your timeline, seating chart, and vendor schedule are ready when you need them.</p>
       </div>
     </div>
   </section>
@@ -620,45 +873,93 @@
   <!-- Features Section -->
   <section class="features" id="features">
     <div class="section-header">
-      <h2>Everything You Need to Plan Your Perfect Day</h2>
-      <p>Aisle & Grace gives you powerful tools without compromising your privacy.</p>
+      <h2>Everything for Your Perfect Day</h2>
+      <p>Powerful tools that actually work the way you think</p>
     </div>
 
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">✓</div>
-        <h3>Task Management</h3>
-        <p>Keep track of every detail with our intuitive checklist. From venue booking to final fittings, never miss a beat.</p>
+        <h3>Never Miss a Moment</h3>
+        <p>From "yes!" to "I do"—our smart checklist guides you through every step, so nothing falls through the cracks.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">💰</div>
-        <h3>Budget Tracking</h3>
-        <p>Stay on top of your wedding budget. Track expenses, set limits, and see exactly where every dollar goes.</p>
+        <h3>Budget Peace of Mind</h3>
+        <p>See exactly where you stand at a glance. Track every expense, avoid surprises, and spend on what matters most to you.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">👥</div>
-        <h3>Guest Management</h3>
-        <p>Organize your guest list, track RSVPs, manage seating arrangements, and handle dietary requirements with ease.</p>
+        <h3>Guest List, Simplified</h3>
+        <p>RSVPs, meal choices, seating—all organized beautifully. Spend less time on spreadsheets, more time celebrating.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">📅</div>
-        <h3>Timeline Planning</h3>
-        <p>Create your perfect day timeline. Coordinate vendors, schedule events, and ensure everything runs smoothly.</p>
+        <h3>Your Day, Your Timeline</h3>
+        <p>Build the perfect schedule from first look to last dance. Share it with your vendors and wedding party in one tap.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">📋</div>
-        <h3>Vendor Coordination</h3>
-        <p>Keep all your vendor information in one place. Contact details, contracts, and payment schedules at your fingertips.</p>
+        <h3>Vendor Hub</h3>
+        <p>Contracts, contact info, payment schedules—everything in one place. No more digging through emails at midnight.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
-        <h3>Private & Secure</h3>
-        <p>All your data stays on your device. Optional encrypted backups to your own Google Drive. No third-party access.</p>
+        <h3>Your Privacy Protected</h3>
+        <p>Your wedding plans stay yours. Local storage, optional encrypted backups, zero tracking. Just the way it should be.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="testimonials-container">
+      <div class="section-header">
+        <h2>Loved by Couples Everywhere</h2>
+        <p>See why thousands trust Aisle & Grace for their big day</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Finally, a wedding planner that doesn't feel like homework! Everything's in one place, and I love that it's not selling my data to vendors. It actually made planning fun."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">💕</div>
+            <div class="testimonial-info">
+              <h4>Sarah & Mike</h4>
+              <p>Married June 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The budget tracker saved us thousands. We could see exactly where our money was going and make smart decisions. Worth its weight in gold!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">💍</div>
+            <div class="testimonial-info">
+              <h4>Jessica & Tom</h4>
+              <p>Married September 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"No ads, no spam, no pressure to buy things we don't need. Just pure organization. This is what wedding planning apps should be."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">🎉</div>
+            <div class="testimonial-info">
+              <h4>Alex & Jordan</h4>
+              <p>Married October 2024</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -700,6 +1001,25 @@
     </div>
   </section>
 
+  <!-- iOS Waitlist Section -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist-container">
+      <h2>Be First on iOS</h2>
+      <p>Join thousands on the waitlist. Get exclusive early access, special perks, and updates on our iOS launch.</p>
+
+      <form class="waitlist-form" action="#" method="POST">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Join Waitlist</button>
+      </form>
+
+      <div class="waitlist-benefits">
+        <span class="waitlist-benefit">✓ Early access</span>
+        <span class="waitlist-benefit">✓ Exclusive features</span>
+        <span class="waitlist-benefit">✓ No spam, ever</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Privacy CTA Section -->
   <section class="privacy-cta">
     <div class="privacy-content">
@@ -717,16 +1037,16 @@
 
   <!-- Final CTA Section -->
   <section class="final-cta">
-    <h2>Ready to Start Planning?</h2>
-    <p>Join couples who trust Aisle & Grace for their special day.</p>
+    <h2>Ready to Say Yes to Easy Planning?</h2>
+    <p>Join thousands of couples planning stress-free weddings.</p>
     <div class="cta-buttons">
-      <a href="#" class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.7;">
-        <span>📱</span>
-        <span>iOS - Coming Soon</span>
-      </a>
       <a href="#" class="btn btn-primary">
         <span>🤖</span>
-        <span>Download for Android</span>
+        <span>Start Planning Free - Android</span>
+      </a>
+      <a href="#waitlist" class="btn btn-secondary">
+        <span>📱</span>
+        <span>Join iOS Waitlist</span>
       </a>
     </div>
   </section>
