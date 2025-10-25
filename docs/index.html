@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>Aisle & Grace - Privacy-First Wedding Planning App</title>
+  <meta name="title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
+  <meta name="description" content="Plan your dream wedding with complete privacy and control. Manage tasks, budget, guests, and vendors without ads or data tracking. Available on Android, coming soon to iOS." />
+  <meta name="keywords" content="wedding planning app, wedding planner, wedding checklist, budget tracker, guest list, privacy-first, no ads, wedding organizer, wedding timeline, vendor management" />
+  <meta name="author" content="Aisle & Grace" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aisleandgrace.app/" />
+  <meta property="og:title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
+  <meta property="og:description" content="Plan your dream wedding with complete privacy and control. Manage tasks, budget, guests, and vendors without ads or data tracking." />
+  <meta property="og:image" content="https://aisleandgrace.app/images/feature_no_text.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://aisleandgrace.app/" />
+  <meta property="twitter:title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
+  <meta property="twitter:description" content="Plan your dream wedding with complete privacy and control. Manage tasks, budget, guests, and vendors without ads or data tracking." />
+  <meta property="twitter:image" content="https://aisleandgrace.app/images/feature_no_text.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./images/icon_512.png" />
+  <link rel="apple-touch-icon" href="./images/icon_512.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #C9A961;
+      --gold-dark: #B08D45;
+      --gold-light: #F5EFE0;
+      --sage: #8B9D83;
+      --sage-dark: #6B7D63;
+      --sage-light: #E8F0E3;
+      --cream: #FAF7F2;
+      --charcoal: #2D2D2D;
+      --gray: #6B6B6B;
+      --light-gray: #F5F5F5;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    nav a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--sage-light) 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: white;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: white;
+      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(201, 169, 97, 0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--charcoal);
+      border: 2px solid var(--charcoal);
+    }
+
+    .btn-secondary:hover {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gold-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--gold-dark);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* App Screenshots */
+    .screenshots {
+      background: var(--light-gray);
+      padding: 5rem 2rem;
+    }
+
+    .screenshots-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .screenshots-scroll {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding: 2rem 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshots-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .screenshots-scroll::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+
+    .screenshots-scroll::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 4px;
+    }
+
+    .screenshot-item {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Privacy Section */
+    .privacy-cta {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .privacy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .privacy-content h2 {
+      font-size: 2.5rem;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .privacy-content p {
+      font-size: 1.125rem;
+      color: var(--charcoal);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .privacy-badges {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--charcoal);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .final-cta p {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: white;
+      margin-bottom: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.125rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0f0f0f;
+        color: #eaeaea;
+      }
+
+      header {
+        background: rgba(15, 15, 15, 0.95);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      }
+
+      .feature-card {
+        background: #1a1a1a;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .screenshots {
+        background: #0a0a0a;
+      }
+
+      .section-header h2,
+      .feature-card h3,
+      .logo {
+        color: #eaeaea;
+      }
+
+      .section-header p,
+      .feature-card p {
+        color: #b0b0b0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <img src="./images/icon_512.png" alt="Aisle & Grace">
+        <span>Aisle & Grace</span>
+      </a>
+      <div>
+        <a href="#features">Features</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./support.html">Support</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Wedding, Your Way</h1>
+      <p>Plan your dream wedding with complete privacy and control. No ads, no data selling, just you and your perfect day.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.7;">
+          <span>📱</span>
+          <span>iOS - Coming Soon</span>
+        </a>
+        <a href="#" class="btn btn-primary">
+          <span>🤖</span>
+          <span>Download for Android</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <h2>Everything You Need to Plan Your Perfect Day</h2>
+      <p>Aisle & Grace gives you powerful tools without compromising your privacy.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✓</div>
+        <h3>Task Management</h3>
+        <p>Keep track of every detail with our intuitive checklist. From venue booking to final fittings, never miss a beat.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Budget Tracking</h3>
+        <p>Stay on top of your wedding budget. Track expenses, set limits, and see exactly where every dollar goes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Guest Management</h3>
+        <p>Organize your guest list, track RSVPs, manage seating arrangements, and handle dietary requirements with ease.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Timeline Planning</h3>
+        <p>Create your perfect day timeline. Coordinate vendors, schedule events, and ensure everything runs smoothly.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Vendor Coordination</h3>
+        <p>Keep all your vendor information in one place. Contact details, contracts, and payment schedules at your fingertips.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Private & Secure</h3>
+        <p>All your data stays on your device. Optional encrypted backups to your own Google Drive. No third-party access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="screenshots">
+    <div class="screenshots-container">
+      <div class="section-header">
+        <h2>Beautiful, Intuitive Design</h2>
+        <p>Every feature designed with care, just like your wedding.</p>
+      </div>
+
+      <div class="screenshots-scroll">
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081401.png" alt="App Screenshot 1">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081443.png" alt="App Screenshot 2">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081507.png" alt="App Screenshot 3">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081531.png" alt="App Screenshot 4">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081718.png" alt="App Screenshot 5">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-081830.png" alt="App Screenshot 6">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-083101.png" alt="App Screenshot 7">
+        </div>
+        <div class="screenshot-item">
+          <img src="./images/Screenshot_20251024-083123.png" alt="App Screenshot 8">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy CTA Section -->
+  <section class="privacy-cta">
+    <div class="privacy-content">
+      <h2>Your Privacy Matters</h2>
+      <p>Unlike other wedding apps, we don't collect your data, show ads, or sell your information. Your wedding planning stays between you and your partner, exactly as it should be.</p>
+      <div class="privacy-badges">
+        <span class="badge">🚫 No Ads</span>
+        <span class="badge">🔒 Local-First</span>
+        <span class="badge">✓ Your Data</span>
+        <span class="badge">🛡️ No Tracking</span>
+      </div>
+      <a href="./privacy.html" class="btn btn-secondary" style="margin-top: 2rem; display: inline-flex;">Read Our Privacy Policy</a>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta">
+    <h2>Ready to Start Planning?</h2>
+    <p>Join couples who trust Aisle & Grace for their special day.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.7;">
+        <span>📱</span>
+        <span>iOS - Coming Soon</span>
+      </a>
+      <a href="#" class="btn btn-primary">
+        <span>🤖</span>
+        <span>Download for Android</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Aisle & Grace</h4>
+        <p>Your wedding, your way.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#">Download</a>
+        <a href="./support.html">Support</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <a href="mailto:support@aisleandgrace.app">Email Us</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Aisle & Grace. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -4,16 +4,178 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Support — Aisle &amp; Grace</title>
-  <style> body{max-width:800px;margin:40px auto;padding:0 16px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6} h1,h2{line-height:1.2} a{color:#E57373} @media(prefers-color-scheme:dark){body{background:#0f0f0f;color:#eaeaea}} </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #2D2D2D;
+      background: #fff;
+    }
+
+    header {
+      background: linear-gradient(135deg, #FFF8F0 0%, #E8F0E3 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      color: #2D2D2D;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #6B6B6B;
+      font-size: 1.125rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .support-options {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .support-card {
+      background: white;
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .support-card:hover {
+      border-color: #C9A961;
+      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.1);
+    }
+
+    .support-card h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2D2D2D;
+    }
+
+    .support-card p {
+      color: #6B6B6B;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #C9A961;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #B08D45;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #C9A961;
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .back-link:hover {
+      background: #B08D45;
+      transform: translateY(-2px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0f0f0f;
+        color: #eaeaea;
+      }
+
+      header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      }
+
+      header h1,
+      .support-card h2 {
+        color: #eaeaea;
+      }
+
+      header p,
+      .support-card p {
+        color: #b0b0b0;
+      }
+
+      .support-card {
+        background: #1a1a1a;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .support-card:hover {
+        border-color: #C9A961;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Support</h1>
-  <p>If you need help, have feedback, or want to report a bug, please reach out:</p>
-  <ul>
-    <li>Email: <a href="mailto:support@aisleandgrace.app">support@aisleandgrace.app</a> (update to your preferred address)</li>
-    <li>Issue tracker: add a link here if you prefer GitHub issues</li>
-  </ul>
+  <header>
+    <h1>We're Here to Help</h1>
+    <p>Get support for Aisle & Grace</p>
+  </header>
 
-  <p><a href="./index.html">&larr; Back to Aisle &amp; Grace</a></p>
+  <div class="container">
+    <div class="support-options">
+      <div class="support-card">
+        <h2>📧 Email Support</h2>
+        <p>Have a question, feedback, or found a bug? We'd love to hear from you.</p>
+        <p><strong>Email:</strong> <a href="mailto:support@aisleandgrace.app">support@aisleandgrace.app</a></p>
+        <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">We typically respond within 24 hours</p>
+      </div>
+
+      <div class="support-card">
+        <h2>❓ Frequently Asked Questions</h2>
+        <p><strong>How do backups work?</strong><br>
+        Backups are optional and stored in your own Google Drive app data folder. You have complete control.</p>
+
+        <p><strong>Is my data safe?</strong><br>
+        Absolutely. All data is stored locally on your device with optional encrypted backups to your Google Drive.</p>
+
+        <p><strong>Can I use this offline?</strong><br>
+        Yes! Aisle & Grace works completely offline. You only need internet for optional Google Drive backups.</p>
+
+        <p><strong>What platforms are supported?</strong><br>
+        Currently available on iOS and Android.</p>
+      </div>
+
+      <div class="support-card">
+        <h2>🔒 Privacy Questions</h2>
+        <p>Want to know more about how we handle your data?</p>
+        <p><a href="./privacy.html">Read our Privacy Policy →</a></p>
+      </div>
+    </div>
+
+    <a href="./index.html" class="back-link">
+      <span>←</span>
+      <span>Back to Home</span>
+    </a>
+  </div>
 </body>
 </html>

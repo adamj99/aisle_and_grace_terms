@@ -1,25 +1,89 @@
----
-permalink: /404.html
-layout: page
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found - Aisle & Grace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FFF8F0 0%, #E8F0E3 100%);
+      color: #2D2D2D;
+      padding: 2rem;
+    }
 
-<div class="container">
-  <h1>404</h1>
+    .container {
+      text-align: center;
+      max-width: 600px;
+    }
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 8rem;
+      color: #C9A961;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: #6B6B6B;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #C9A961;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+    }
+
+    a:hover {
+      background: #B08D45;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(201, 169, 97, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Oops! Looks like this page got lost on the way to the altar. Let's get you back on track.</p>
+    <a href="./index.html">Return Home</a>
+  </div>
+</body>
+</html>
