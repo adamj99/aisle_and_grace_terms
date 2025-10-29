@@ -1,0 +1,93 @@
+---
+redirect_from:
+  - /terms.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Service — Aisle &amp; Grace</title>
+  <link rel="canonical" href="/terms" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #2D2D2D; background: #fff; }
+    header { background: linear-gradient(135deg, #FFF8F0 0%, #E8F0E3 100%); padding: 3rem 2rem; text-align: center; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    header h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; color: #2D2D2D; margin-bottom: 0.5rem; }
+    .effective-date { color: #6B6B6B; font-size: 0.95rem; margin-top: 0.5rem; }
+    .container { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+    h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; margin: 2.5rem 0 1rem 0; color: #2D2D2D; }
+    h2:first-of-type { margin-top: 0; }
+    p { margin: 0.75rem 0; }
+    ul { margin: 1rem 0 1.5rem 1.5rem; }
+    li { margin-bottom: 0.75rem; line-height: 1.7; }
+    a { color: #C9A961; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    a:hover { color: #B08D45; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 3rem; padding: 0.75rem 1.5rem; background: #C9A961; color: white; border-radius: 50px; font-weight: 600; transition: all 0.3s; }
+    .back-link:hover { background: #B08D45; transform: translateY(-2px); }
+    .note { background: #f9f9f9; padding: 1.25rem; border-left: 4px solid #C9A961; border-radius: 12px; margin: 1.5rem 0; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0f0f0f; color: #eaeaea; }
+      header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); }
+      header h1, h2 { color: #eaeaea; }
+      .effective-date { color: #b0b0b0; }
+      .note { background: #1a1a1a; }
+    }
+  </style>
+  <script>
+    // Normalize the URL to "/terms" in the address bar
+    (function() {
+      var path = window.location.pathname;
+      if ((path === '/terms/' || path === '/terms/index.html') && history && history.replaceState) {
+        history.replaceState(null, '', '/terms');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Terms of Service</h1>
+    <p class="effective-date">Effective: <strong><script>document.write(new Date().toLocaleDateString())</script></strong></p>
+  </header>
+
+  <div class="container">
+    <div class="note">
+      Welcome to Aisle &amp; Grace. These Terms govern your use of our apps and website. By using Aisle &amp; Grace, you agree to these Terms.
+    </div>
+
+    <h2>1. Use of the App</h2>
+    <p>You may use Aisle &amp; Grace only for lawful purposes and in accordance with these Terms. You’re responsible for keeping your device and data secure.</p>
+
+    <h2>2. Accounts and Backups</h2>
+    <p>The app works locally without an account. Optional Google Drive backups require your consent and are stored in your private <code>appDataFolder</code>. You can revoke access at any time via your Google Account settings.</p>
+
+    <h2>3. Privacy</h2>
+    <p>We do not collect analytics or sell your data. For details on what we store and your choices, see our <a href="/privacy">Privacy Policy</a>.</p>
+
+    <h2>4. Purchases</h2>
+    <p>Any purchases made through app stores are subject to the applicable store’s terms and refund policies.</p>
+
+    <h2>5. Intellectual Property</h2>
+    <p>Aisle &amp; Grace and its content are protected by copyright and other intellectual property laws. You may not copy, modify, or redistribute the app or website content except as permitted by law.</p>
+
+    <h2>6. Disclaimers</h2>
+    <p>The app is provided “as is” without warranties of any kind. We do not guarantee that the app will be error-free or uninterrupted.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by law, Aisle &amp; Grace is not liable for any indirect, incidental, special, or consequential damages arising from your use of the app or website.</p>
+
+    <h2>8. Changes</h2>
+    <p>We may update these Terms from time to time. Material changes will be reflected on this page with an updated effective date.</p>
+
+    <h2>9. Contact</h2>
+    <p>Questions about these Terms? <a href="/support">Contact support</a>.</p>
+
+    <a href="/" class="back-link">
+      <span>←</span>
+      <span>Back to Home</span>
+    </a>
+  </div>
+</body>
+</html>
+

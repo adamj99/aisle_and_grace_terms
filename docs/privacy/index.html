@@ -1,3 +1,7 @@
+---
+redirect_from:
+  - /privacy.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,10 +163,10 @@
     }
   </style>
   <script>
-    // Replace /privacy/ with /privacy without causing extra redirect chains if desired
+    // Normalize the URL to "/privacy" in the address bar
     (function() {
       var path = window.location.pathname;
-      if (path === '/privacy/' && history && history.replaceState) {
+      if ((path === '/privacy/' || path === '/privacy/index.html') && history && history.replaceState) {
         history.replaceState(null, '', '/privacy');
       }
     })();
@@ -218,7 +222,7 @@
 
     <h2>📧 Contact</h2>
     <p>Questions about privacy? We're here to help.<br>
-    <a href="/support.html">Contact support →</a></p>
+    <a href="/support">Contact support →</a></p>
 
     <a href="/" class="back-link">
       <span>←</span>
@@ -227,4 +231,3 @@
   </div>
 </body>
 </html>
-

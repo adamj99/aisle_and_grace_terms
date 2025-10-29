@@ -793,6 +793,17 @@
         background: #0a0a0a;
       }
 
+      /* Keep testimonials light in dark mode */
+      .testimonials {
+        background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);
+      }
+      .testimonials .section-header h2 {
+        color: var(--charcoal);
+      }
+      .testimonials .section-header p {
+        color: var(--gray);
+      }
+
       .section-header h2,
       .feature-card h3,
       .logo {
@@ -817,7 +828,8 @@
       <div>
         <a href="#features">Features</a>
         <a href="/privacy">Privacy</a>
-        <a href="./support.html">Support</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
       </div>
     </nav>
   </header>
@@ -1063,13 +1075,13 @@
         <h4>Product</h4>
         <a href="#features">Features</a>
         <a href="#">Download</a>
-        <a href="./support.html">Support</a>
+        <a href="/support">Support</a>
       </div>
 
       <div class="footer-section">
         <h4>Legal</h4>
         <a href="/privacy">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="/terms">Terms of Service</a>
       </div>
 
       <div class="footer-section">

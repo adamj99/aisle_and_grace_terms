@@ -1,9 +1,14 @@
+---
+redirect_from:
+  - /support.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Support — Aisle &amp; Grace</title>
+  <link rel="canonical" href="/support" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -134,6 +139,15 @@
       }
     }
   </style>
+  <script>
+    // Normalize address bar to "/support"
+    (function() {
+      var path = window.location.pathname;
+      if ((path === '/support/' || path === '/support/index.html') && history && history.replaceState) {
+        history.replaceState(null, '', '/support');
+      }
+    })();
+  </script>
 </head>
 <body>
   <header>
@@ -172,7 +186,7 @@
       </div>
     </div>
 
-    <a href="./index.html" class="back-link">
+    <a href="/" class="back-link">
       <span>←</span>
       <span>Back to Home</span>
     </a>

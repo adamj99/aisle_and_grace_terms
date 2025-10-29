@@ -19,12 +19,13 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Aisle & Grace
-baseurl: "/docs" # the subpath of your site, e.g. /blog
+baseurl: "" # publish at site root (custom domain)
 
 # Build settings
 remote_theme: "jekyll/minima@1e8a445"
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default.
