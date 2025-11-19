@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,22 +8,26 @@
   <!-- Primary Meta Tags -->
   <title>Aisle & Grace - Privacy-First Wedding Planning App</title>
   <meta name="title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
-  <meta name="description" content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Manage guests, budget, vendors, and export seating charts with complete privacy—no ads or tracking. One-time payment, lifetime access. Available on Android, coming soon to iOS." />
-  <meta name="keywords" content="wedding planning app, wedding planner, AI wedding assistant, AI table assignment, seating chart, guest management, cultural wedding planning, wedding checklist, budget tracker, guest list, privacy-first, no ads, wedding organizer, wedding timeline, vendor management, style recommendations, one-time payment, lifetime access, table planner, seating arrangement" />
+  <meta name="description"
+    content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Manage guests, budget, vendors, and export seating charts with complete privacy—no ads or tracking. One-time payment, lifetime access." />
+  <meta name="keywords"
+    content="wedding planning app, wedding planner, AI wedding assistant, AI table assignment, seating chart, guest management, cultural wedding planning, wedding checklist, budget tracker, guest list, privacy-first, no ads, wedding organizer, wedding timeline, vendor management, style recommendations, one-time payment, lifetime access, table planner, seating arrangement" />
   <meta name="author" content="Aisle & Grace" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aisleandgrace.app/" />
   <meta property="og:title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
-  <meta property="og:description" content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Export seating charts instantly. Complete privacy—no ads or tracking. One-time payment, lifetime access." />
+  <meta property="og:description"
+    content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Export seating charts instantly. Complete privacy—no ads or tracking. One-time payment, lifetime access." />
   <meta property="og:image" content="https://aisleandgrace.app/images/feature_no_text.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://aisleandgrace.app/" />
   <meta property="twitter:title" content="Aisle & Grace - Privacy-First Wedding Planning App" />
-  <meta property="twitter:description" content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Export seating charts instantly. Complete privacy—no ads or tracking. One-time payment, lifetime access." />
+  <meta property="twitter:description"
+    content="Plan your dream wedding with AI-powered personalization, smart recommendations, and auto table assignment. Export seating charts instantly. Complete privacy—no ads or tracking. One-time payment, lifetime access." />
   <meta property="twitter:image" content="https://aisleandgrace.app/images/feature_no_text.png" />
 
   <!-- Favicon -->
@@ -32,1284 +37,436 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --gold: #C9A961;
-      --gold-dark: #B08D45;
-      --gold-light: #F5EFE0;
-      --sage: #8B9D83;
-      --sage-dark: #6B7D63;
-      --sage-light: #E8F0E3;
-      --cream: #FAF7F2;
-      --charcoal: #2D2D2D;
-      --gray: #6B6B6B;
-      --light-gray: #F5F5F5;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: var(--charcoal);
-      background: #fff;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', Georgia, serif;
-      line-height: 1.2;
-      font-weight: 600;
-    }
-
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 2px solid transparent;
-      border-image: linear-gradient(90deg, transparent, var(--gold-light), transparent) 1;
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      text-decoration: none;
-    }
-
-    .logo img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-    }
-
-    nav a {
-      color: var(--gray);
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    /* Hero Section */
-    .hero {
-      margin-top: 80px;
-      background: linear-gradient(135deg, #FFF9F0 0%, #FFE5E5 50%, var(--sage-light) 100%);
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(201, 169, 97, 0.3) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(139, 157, 131, 0.2) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: float 15s ease-in-out infinite reverse;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -30px); }
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      color: var(--charcoal);
-      margin-bottom: 1rem;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .hero .subtitle {
-      font-size: 1.125rem;
-      color: var(--gold);
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      animation: fadeInUp 0.8s ease-out 0.1s backwards;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--gray);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 0.8s ease-out 0.2s backwards;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.8s ease-out 0.4s backwards;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: white;
-      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(201, 169, 97, 0.4);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--charcoal);
-      border: 2px solid var(--charcoal);
-    }
-
-    .btn-secondary:hover {
-      background: var(--charcoal);
-      color: white;
-    }
-
-    /* Features Section */
-    .features {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.5rem;
-      color: var(--charcoal);
-      margin-bottom: 1rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .section-header p {
-      font-size: 1.125rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .feature-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s;
-      border: 2px solid transparent;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--sage));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(201, 169, 97, 0.15);
-      border-color: var(--gold-light);
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: var(--gold-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--gold-dark);
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--charcoal);
-    }
-
-    .feature-card p {
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* App Screenshots */
-    .screenshots {
-      background: linear-gradient(to bottom, var(--light-gray) 0%, white 100%);
-      padding: 5rem 2rem;
-      position: relative;
-    }
-
-    .screenshots::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--sage), transparent);
-    }
-
-    .screenshots-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .screenshots-scroll {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      padding: 2rem 0;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .screenshots-scroll::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .screenshots-scroll::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
-    }
-
-    .screenshots-scroll::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 4px;
-    }
-
-    .screenshot-item {
-      flex: 0 0 280px;
-      scroll-snap-align: start;
-    }
-
-    .screenshot-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 24px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Privacy Section */
-    .privacy-cta {
-      background: linear-gradient(135deg, var(--sage-light) 0%, var(--cream) 100%);
-      padding: 5rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .privacy-cta::before {
-      content: '🔒';
-      position: absolute;
-      top: 2rem;
-      right: 5%;
-      font-size: 4rem;
-      opacity: 0.1;
-    }
-
-    .privacy-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .privacy-content h2 {
-      font-size: 2.5rem;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
-    }
-
-    .privacy-content p {
-      font-size: 1.125rem;
-      color: var(--charcoal);
-      margin-bottom: 2rem;
-      line-height: 1.8;
-    }
-
-    .privacy-badges {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .badge {
-      background: white;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      color: var(--charcoal);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border: 2px solid var(--gold-light);
-      transition: all 0.3s;
-    }
-
-    .badge:hover {
-      transform: translateY(-2px);
-      border-color: var(--gold);
-      box-shadow: 0 4px 15px rgba(201, 169, 97, 0.2);
-    }
-
-    /* Final CTA */
-    .final-cta {
-      background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
-      color: white;
-      padding: 5rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--sage), var(--gold), var(--sage));
-    }
-
-    .final-cta h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .final-cta p {
-      font-size: 1.125rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
-    }
-
-    /* Footer */
-    footer {
-      background: #1a1a1a;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 3rem 2rem 2rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      color: white;
-      margin-bottom: 1rem;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .footer-section a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-      transition: color 0.3s;
-    }
-
-    .footer-section a:hover {
-      color: var(--gold);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.9rem;
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* How It Works Section */
-    .how-it-works {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
-      position: relative;
-    }
-
-    .how-it-works::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .how-it-works .section-header h2 {
-      color: white;
-    }
-
-    .how-it-works .section-header h2::after {
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .how-it-works .section-header p {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: white;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
-    }
-
-    .step h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .step p {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.7;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);
-    }
-
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border-left: 4px solid var(--gold);
-    }
-
-    .testimonial-text {
-      font-style: italic;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .testimonial-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--gold-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    .testimonial-info h4 {
-      font-size: 1rem;
-      color: var(--charcoal);
-      margin-bottom: 0.25rem;
-    }
-
-    .testimonial-info p {
-      font-size: 0.875rem;
-      color: var(--gray);
-    }
-
-    .stars {
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    /* Waitlist Section */
-    .waitlist {
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
-      text-align: center;
-    }
-
-    .waitlist-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .waitlist h2 {
-      font-size: 2.5rem;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .waitlist p {
-      font-size: 1.125rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2rem;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .waitlist-form input {
-      flex: 1;
-      padding: 1rem 1.5rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .waitlist-form button {
-      padding: 1rem 2rem;
-      background: var(--gold);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      white-space: nowrap;
-    }
-
-    .waitlist-form button:hover {
-      background: var(--gold-dark);
-      transform: translateY(-2px);
-    }
-
-    .waitlist-benefits {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .waitlist-benefit {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.125rem;
-      }
-
-      .section-header h2 {
-        font-size: 2rem;
-      }
-
-      nav a {
-        margin-left: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #0f0f0f;
-        color: #eaeaea;
-      }
-
-      header {
-        background: rgba(15, 15, 15, 0.95);
-      }
-
-      .hero {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-      }
-
-      .feature-card {
-        background: #1a1a1a;
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .screenshots {
-        background: #0a0a0a;
-      }
-
-      /* Keep testimonials light in dark mode */
-      .testimonials {
-        background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);
-      }
-      .testimonials .section-header h2 {
-        color: var(--charcoal);
-      }
-      .testimonials .section-header p {
-        color: var(--gray);
-      }
-
-      .section-header h2,
-      .feature-card h3,
-      .logo {
-        color: #eaeaea;
-      }
-
-      .section-header p,
-      .feature-card p {
-        color: #b0b0b0;
-      }
-    }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
   <!-- Header -->
   <header>
-    <nav>
-      <a href="#" class="logo">
-        <img src="./images/icon_512.png" alt="Aisle & Grace">
-        <span>Aisle & Grace</span>
-      </a>
-      <div>
-        <a href="#features">Features</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/support">Support</a>
-        <a href="/terms">Terms</a>
-      </div>
-    </nav>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <img src="./images/icon_512.png" alt="Aisle & Grace">
+          <span>Aisle & Grace</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it Works</a>
+          <a href="#reviews">Reviews</a>
+          <a href="/privacy">Privacy</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="subtitle">AI-Powered Wedding Planning That Learns Your Style</div>
-      <h1 style="color: #4A4A4A;">Planning That Feels Personal</h1>
-      <p>Get smart recommendations tailored to your unique vision. Let AI handle your seating chart in seconds. From style preferences to table assignments, our AI guides you through every decision—without ads, tracking, or overwhelm.</p>
-      <div class="cta-buttons">
-        <a href="#" class="btn btn-primary">
-          <span>🤖</span>
-          <span>Get Started - £6.99 (Android)</span>
-        </a>
-        <a href="#waitlist" class="btn btn-secondary">
-          <span>📱</span>
-          <span>Join iOS Waitlist</span>
-        </a>
-      </div>
-      <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">One-time payment. Lifetime access. Start planning your perfect day.</p>
-    </div>
-  </section>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-subtitle">AI-Powered Wedding Planning</div>
+        <h1>Planning That Feels Personal</h1>
+        <p>Get smart recommendations tailored to your unique vision. Let AI handle your seating chart in seconds. From
+          style preferences to table assignments, our AI guides you through every decision—without ads, tracking, or
+          overwhelm.</p>
 
-  <!-- New Features Highlight Section -->
-  <section class="features" style="padding: 4rem 2rem; background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <div class="section-header">
-        <h2 style="color: var(--charcoal);">🎉 Now with AI-Powered Features</h2>
-        <p style="color: var(--gray);">We've built more intelligent features than ever before to make your planning effortless</p>
-      </div>
-
-      <div class="features-grid" style="margin-top: 2rem;">
-        <div class="feature-card" style="border: 3px solid var(--gold); background: white;">
-          <div class="feature-icon" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: white;">1</div>
-          <h3 style="color: var(--charcoal);">Style-Based Personalization</h3>
-          <p style="color: var(--gray);"><strong>The Foundation:</strong> Your wedding style unlocks everything. Choose from modern, classic, rustic, bohemian, or create your own blend. Every recommendation flows from your aesthetic.</p>
+        <div class="cta-group">
+          <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.weddingplanner"
+            class="btn btn-primary" target="_blank">
+            <span>🤖</span>
+            <span>Get Started - £6.49 (Android)</span>
+          </a>
+          <a href="#waitlist" class="btn btn-secondary">
+            <span>📱</span>
+            <span>Join iOS Waitlist</span>
+          </a>
         </div>
 
-        <div class="feature-card" style="border: 3px solid var(--gold); background: white;">
-          <div class="feature-icon" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: white;">2</div>
-          <h3 style="color: var(--charcoal);">Smart Recommendations Engine</h3>
-          <p style="color: var(--gray);"><strong>High Impact:</strong> Your home screen comes alive with personalized suggestions. See tasks, vendors, and tips that match your style—exactly when you need them.</p>
-        </div>
-
-        <div class="feature-card" style="border: 3px solid var(--gold); background: white;">
-          <div class="feature-icon" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: white;">3</div>
-          <h3 style="color: var(--charcoal);">Contextual Tips & Insights</h3>
-          <p style="color: var(--gray);"><strong>Always Relevant:</strong> Get intelligent advice that adapts to your progress and preferences. The right tip at the right time, every time.</p>
-        </div>
-
-        <div class="feature-card" style="border: 3px solid var(--gold); background: white;">
-          <div class="feature-icon" style="background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: white;">🪑</div>
-          <h3 style="color: var(--charcoal);">AI Table Assignment</h3>
-          <p style="color: var(--gray);"><strong>Game Changer:</strong> No more seating chart stress! AI automatically assigns guests to tables based on relationships and dynamics. Export and share with your venue instantly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section class="how-it-works">
-    <div class="section-header">
-      <h2>Planning Made Personal</h2>
-      <p>AI-powered organization in three simple steps</p>
-    </div>
-
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Define Your Style</h3>
-        <p>Tell us your aesthetic—modern, classic, rustic, or eclectic. Your style preferences become the foundation for personalized recommendations throughout your planning journey.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Get Smart Recommendations</h3>
-        <p>See intelligent suggestions tailored to your vision right on your home screen. Our AI guides your tasks, budget, vendors, and timeline based on what matters most to you.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Plan with Confidence</h3>
-        <p>Receive contextual tips at exactly the right moment. Walk down the aisle knowing every detail reflects your unique style and nothing was overlooked.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="section-header">
-      <h2>Smarter Planning, Powered by Your Style</h2>
-      <p>AI-driven personalization that learns your preferences and guides every decision</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🎨</div>
-        <h3>Style-Based Personalization</h3>
-        <p>Tell us your aesthetic—modern minimalist, classic romance, rustic charm, or anything in between. Your style becomes the foundation for every recommendation we make.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>Smart Recommendations Engine</h3>
-        <p>See personalized suggestions right on your home screen. From vendor choices to task priorities, get intelligent recommendations tailored to your unique wedding vision.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">💡</div>
-        <h3>Contextual Tips & Insights</h3>
-        <p>Get the right advice at the right time. Our AI analyzes your style and progress to deliver timely tips that keep you on track and stress-free.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">✓</div>
-        <h3>Intelligent Checklists</h3>
-        <p>From "yes!" to "I do"—our smart checklist adapts to your style and timeline, guiding you through every step so nothing falls through the cracks.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">💰</div>
-        <h3>Budget Peace of Mind</h3>
-        <p>See exactly where you stand at a glance. Track every expense, get spending insights, and make smart decisions about what matters most to you.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <h3>Advanced Guest Management</h3>
-        <p>Complete guest database with RSVPs, dietary requirements, Plus-ones, and meal choices. Track attendance, send updates, and manage your guest list like a pro.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🪑</div>
-        <h3>AI-Powered Table Assignment</h3>
-        <p>Let AI do the seating chart headache for you! Automatically arrange guests based on relationships, preferences, and group dynamics. Smart suggestions that actually make sense.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Table Planner & Export</h3>
-        <p>Visualize your seating arrangements with an intuitive table planner. Export your seating chart to share with your venue, caterer, or print for your big day.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <h3>Your Day, Your Timeline</h3>
-        <p>Build the perfect schedule from first look to last dance. Share it with your vendors and wedding party in one tap.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Vendor Hub</h3>
-        <p>Contracts, contact info, payment schedules—everything in one place. No more digging through emails at midnight.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <h3>Cultural & Religious Traditions</h3>
-        <p>Honor your heritage with customized checklists and timelines. From traditional ceremonies to multicultural celebrations—we support your story.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Your Privacy Protected</h3>
-        <p>Your wedding plans stay yours. Local storage, optional encrypted backups, zero tracking. Just the way it should be.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">💝</div>
-        <h3>Lifetime Access, One Payment</h3>
-        <p>Pay once, plan forever. No subscriptions, no hidden fees. Your wedding planning companion for life—less than the cost of a bouquet.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <div class="testimonials-container">
-      <div class="section-header">
-        <h2>Loved by Couples Everywhere</h2>
-        <p>See why thousands trust Aisle & Grace for their big day</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The style personalization is a game-changer! I told it I wanted modern minimalist, and suddenly every recommendation made sense for our vision. It's like having a planner who actually gets us."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">✨</div>
-            <div class="testimonial-info">
-              <h4>Emma & David</h4>
-              <p>Planning for May 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The AI recommendations on the home screen saved me so much time. Instead of endless scrolling, I get exactly what I need to focus on. Smart tips that actually helped us stay ahead!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">💡</div>
-            <div class="testimonial-info">
-              <h4>Priya & James</h4>
-              <p>Married October 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Finally, a wedding planner that doesn't feel like homework! Everything's personalized to our style, and I love that it's not selling my data to vendors. It actually made planning fun."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">💕</div>
-            <div class="testimonial-info">
-              <h4>Sarah & Mike</h4>
-              <p>Married June 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The budget tracker saved us thousands. We could see exactly where our money was going and make smart decisions. Worth its weight in gold!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">💍</div>
-            <div class="testimonial-info">
-              <h4>Jessica & Tom</h4>
-              <p>Married September 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The contextual tips feature is brilliant. Right when I was stressing about timelines, the app suggested exactly what I needed to do next. It's like it reads my mind!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">🎯</div>
-            <div class="testimonial-info">
-              <h4>Lauren & Chris</h4>
-              <p>Married November 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"The AI table assignment is INCREDIBLE! I was dreading the seating chart for our 150 guests. The AI figured it out in seconds, keeping families together and separating my weird uncle from... everyone. Genius!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">🪑</div>
-            <div class="testimonial-info">
-              <h4>Rachel & Ben</h4>
-              <p>Planning for July 2025</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Guest management has never been easier. Tracking RSVPs, dietary needs, and plus-ones all in one place—then exporting the seating chart for the venue? Worth every penny!"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">📋</div>
-            <div class="testimonial-info">
-              <h4>Maya & Chris</h4>
-              <p>Married December 2024</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"No ads, no spam, no pressure to buy things we don't need. Just pure organization tailored to our style. This is what wedding planning apps should be."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">🎉</div>
-            <div class="testimonial-info">
-              <h4>Alex & Jordan</h4>
-              <p>Married October 2024</p>
-            </div>
-          </div>
+        <div class="one-time-badge">
+          One-time payment. Lifetime access. Start planning your perfect day.
         </div>
       </div>
     </div>
   </section>
 
   <!-- Screenshots Section -->
-  <section class="screenshots">
-    <div class="screenshots-container">
+  <section class="screenshots-section">
+    <div class="container">
       <div class="section-header">
         <h2>Beautiful, Intuitive Design</h2>
         <p>Every feature designed with care, just like your wedding.</p>
       </div>
+    </div>
 
-      <div class="screenshots-scroll">
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081401.png" alt="Wedding Planning Dashboard">
+    <div class="screenshots-scroll">
+      <!-- Images will be updated here -->
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081401.png" alt="Wedding Planning Dashboard">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081402.png" alt="Style Preferences">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081403.png" alt="Personalized Recommendations">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081406.png" alt="Smart Tips & Insights">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081443.png" alt="Budget Tracker">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081507.png" alt="Guest List Management">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_1762289974.png" alt="AI-Powered Table Assignment">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_1762290062.png" alt="Table Planner & Seating">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081718.png" alt="Vendor Management">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-081830.png" alt="Seating Chart">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-083101.png" alt="Task Checklist">
+      </div>
+      <div class="screenshot-item">
+        <img src="./images/Screenshot_20251024-083123.png" alt="Wedding Details">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Smarter Planning, Powered by Your Style</h2>
+        <p>AI-driven personalization that learns your preferences and guides every decision</p>
+      </div>
+
+      <div class="grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Style-Based Personalization</h3>
+          <p>Tell us your aesthetic—modern minimalist, classic romance, rustic charm, or anything in between. Your style
+            becomes the foundation for every recommendation we make.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081402.png" alt="Style Preferences">
+
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Smart Recommendations Engine</h3>
+          <p>See personalized suggestions right on your home screen. From vendor choices to task priorities, get
+            intelligent recommendations tailored to your unique wedding vision.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081403.png" alt="Personalized Recommendations">
+
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Contextual Tips & Insights</h3>
+          <p>Get the right advice at the right time. Our AI analyzes your style and progress to deliver timely tips that
+            keep you on track and stress-free.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081406.png" alt="Smart Tips & Insights">
+
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Intelligent Checklists</h3>
+          <p>From "yes!" to "I do"—our smart checklist adapts to your style and timeline, guiding you through every step
+            so nothing falls through the cracks.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081443.png" alt="Budget Tracker">
+
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Budget Peace of Mind</h3>
+          <p>See exactly where you stand at a glance. Track every expense, get spending insights, and make smart
+            decisions about what matters most to you.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081507.png" alt="Guest List Management">
+
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Advanced Guest Management</h3>
+          <p>Complete guest database with RSVPs, dietary requirements, Plus-ones, and meal choices. Track attendance,
+            send updates, and manage your guest list like a pro.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_1762289974.png" alt="AI-Powered Table Assignment">
+
+        <div class="feature-card">
+          <div class="feature-icon">🪑</div>
+          <h3>AI-Powered Table Assignment</h3>
+          <p>Let AI do the seating chart headache for you! Automatically arrange guests based on relationships,
+            preferences, and group dynamics. Smart suggestions that actually make sense.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_1762290062.png" alt="Table Planner & Seating">
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Table Planner & Export</h3>
+          <p>Visualize your seating arrangements with an intuitive table planner. Export your seating chart to share
+            with your venue, caterer, or print for your big day.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081718.png" alt="Vendor Management">
+
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Your Day, Your Timeline</h3>
+          <p>Build the perfect schedule from first look to last dance. Share it with your vendors and wedding party in
+            one tap.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-081830.png" alt="Seating Chart">
+
+
+
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Cultural & Religious Traditions</h3>
+          <p>Honor your heritage with customized checklists and timelines. From traditional ceremonies to multicultural
+            celebrations—we support your story.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-083101.png" alt="Task Checklist">
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Your Privacy Protected</h3>
+          <p>Your wedding plans stay yours. Local storage, optional encrypted backups, zero tracking. Just the way it
+            should be.</p>
         </div>
-        <div class="screenshot-item">
-          <img src="./images/Screenshot_20251024-083123.png" alt="Wedding Details">
+
+        <div class="feature-card">
+          <div class="feature-icon">💝</div>
+          <h3>Lifetime Access, One Payment</h3>
+          <p>Pay once, plan forever. No subscriptions, no hidden fees. Your wedding planning companion for life—less
+            than the cost of a bouquet.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2>Loved by Couples Everywhere</h2>
+        <p>See why thousands trust Aisle & Grace for their big day</p>
+      </div>
+
+      <div class="grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The style personalization is a game-changer! I told it I wanted modern
+            minimalist, and suddenly every recommendation made sense for our vision. It's like having a planner who
+            actually gets us."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">✨</div>
+            <div class="author-info">
+              <h4>Emma & David</h4>
+              <p>Planning for May 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The AI recommendations on the home screen saved me so much time. Instead of
+            endless scrolling, I get exactly what I need to focus on. Smart tips that actually helped us stay ahead!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">💡</div>
+            <div class="author-info">
+              <h4>Priya & James</h4>
+              <p>Married October 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Finally, a wedding planner that doesn't feel like homework! Everything's
+            personalized to our style, and I love that it's not selling my data to vendors. It actually made planning
+            fun."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">💕</div>
+            <div class="author-info">
+              <h4>Sarah & Mike</h4>
+              <p>Married June 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The budget tracker saved us thousands. We could see exactly where our money was
+            going and make smart decisions. Worth its weight in gold!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">💍</div>
+            <div class="author-info">
+              <h4>Jessica & Tom</h4>
+              <p>Married September 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The contextual tips feature is brilliant. Right when I was stressing about
+            timelines, the app suggested exactly what I needed to do next. It's like it reads my mind!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🎯</div>
+            <div class="author-info">
+              <h4>Lauren & Chris</h4>
+              <p>Married November 2024</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The AI table assignment is INCREDIBLE! I was dreading the seating chart for our
+            150 guests. The AI figured it out in seconds, keeping families together and separating my weird uncle
+            from... everyone. Genius!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🪑</div>
+            <div class="author-info">
+              <h4>Rachel & Ben</h4>
+              <p>Planning for July 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
   <!-- Value Justification Section -->
-  <section style="padding: 5rem 2rem; background: linear-gradient(135deg, #fff 0%, var(--cream) 100%); position: relative;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--charcoal); margin-bottom: 1rem;">Worth Every Penny of Your Peace of Mind</h2>
-      <p style="font-size: 1.125rem; color: var(--gray); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Everything you need for your perfect day, in one beautiful app. No subscriptions, no hidden costs—just £6.99, once.
-      </p>
+  <section class="value-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Worth Every Penny of Your Peace of Mind</h2>
+        <p>Everything you need for your perfect day, in one beautiful app. No subscriptions, no hidden costs.</p>
+      </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 3rem;">
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--gold);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">✓</div>
-          <h3 style="font-size: 1.25rem; color: var(--charcoal); margin-bottom: 0.75rem; font-weight: 600;">All-in-One Planner</h3>
-          <p style="color: var(--gray); line-height: 1.6;">Smart checklist, budget tracker, advanced guest management, AI table assignment with export, vendor hub, and timeline builder—everything you need in one place.</p>
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="feature-icon" style="margin: 0 auto 1.5rem;">✓</div>
+          <h3>All-in-One Planner</h3>
+          <p>Smart checklist, budget tracker, advanced guest management, AI table assignment with export, vendor hub,
+            and timeline builder—everything you need in one place.</p>
         </div>
 
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--sage);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
-          <h3 style="font-size: 1.25rem; color: var(--charcoal); margin-bottom: 0.75rem; font-weight: 600;">Private by Design</h3>
-          <p style="color: var(--gray); line-height: 1.6;">No ads cluttering your planning. No data tracking or selling your information. Your wedding stays yours.</p>
+        <div class="value-item">
+          <div class="feature-icon" style="margin: 0 auto 1.5rem;">🔒</div>
+          <h3>Private by Design</h3>
+          <p>No ads cluttering your planning. No data tracking or selling your information. Your wedding stays yours.
+          </p>
         </div>
 
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--gold);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">💝</div>
-          <h3 style="font-size: 1.25rem; color: var(--charcoal); margin-bottom: 0.75rem; font-weight: 600;">One-Time Payment</h3>
-          <p style="color: var(--gray); line-height: 1.6;">Lifetime access for less than a bridal bouquet. No monthly fees, no subscription traps. Pay once, plan forever.</p>
+        <div class="value-item">
+          <div class="feature-icon" style="margin: 0 auto 1.5rem;">💝</div>
+          <h3>One-Time Payment</h3>
+          <p>Lifetime access for less than a bridal bouquet. No monthly fees, no subscription traps. Pay once, plan
+            forever.</p>
         </div>
 
-        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--sage);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">👫</div>
-          <h3 style="font-size: 1.25rem; color: var(--charcoal); margin-bottom: 0.75rem; font-weight: 600;">Plan Together Seamlessly</h3>
-          <p style="color: var(--gray); line-height: 1.6;">Share your wedding planning with your partner. Both stay in sync without messy spreadsheets or endless texts.</p>
+        <div class="value-item">
+          <div class="feature-icon" style="margin: 0 auto 1.5rem;">👫</div>
+          <h3>Plan Together Seamlessly</h3>
+          <p>Share your wedding planning with your partner. Both stay in sync without messy spreadsheets or endless
+            texts.</p>
         </div>
       </div>
 
-      <div style="background: linear-gradient(135deg, var(--gold-light) 0%, var(--sage-light) 100%); padding: 2rem; border-radius: 16px; text-align: center;">
-        <p style="font-size: 1.25rem; color: var(--charcoal); font-weight: 600; margin-bottom: 0.5rem;">
-          £6.99 = Less than a bouquet. Lasts your entire planning journey.
-        </p>
-        <p style="font-size: 1rem; color: var(--gray);">
-          Premium experience. Fair price. Zero ongoing costs.
-        </p>
-      </div>
+
     </div>
   </section>
 
   <!-- Why It's Paid Section -->
-  <section style="padding: 5rem 2rem; background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%); color: white; position: relative;">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <div style="font-size: 3rem; margin-bottom: 1.5rem; opacity: 0.9;">💐</div>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.25rem; margin-bottom: 1.5rem; color: white;">Why Aisle & Grace Isn't Free</h2>
-      <p style="font-size: 1.25rem; line-height: 1.8; margin-bottom: 2rem; opacity: 0.95;">
-        Free apps make money from your data—selling it to vendors, showing you ads, or pushing sponsored content. We don't do any of that.
-      </p>
-      <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem; opacity: 0.9;">
-        That's why <strong>Aisle & Grace costs less than a bouquet—once, for life.</strong>
-      </p>
-      <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; border: 2px solid rgba(201, 169, 97, 0.3); backdrop-filter: blur(10px);">
-        <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95; margin-bottom: 1rem;">
-          <strong style="color: var(--gold);">Your privacy is our business model.</strong> We charge fairly for a premium product so we never have to monetize your personal wedding plans.
-        </p>
-        <p style="font-size: 1rem; line-height: 1.7; opacity: 0.9;">
-          No tracking. No ads. No hidden agendas. Just honest, elegant wedding planning that respects you.
-        </p>
+  <section class="features-section" style="background: #1a1a1a; color: white;">
+    <div class="container">
+      <div class="section-header">
+        <div style="font-size: 3rem; margin-bottom: 1.5rem;">💐</div>
+        <h2 style="color: white;">Why Aisle & Grace Isn't Free</h2>
+        <p style="color: rgba(255,255,255,0.8);">Free apps make money from your data—selling it to vendors, showing you
+          ads, or pushing sponsored content. We don't do any of that.</p>
+      </div>
+
+      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.25rem; margin-bottom: 2rem;">That's why <strong>Aisle & Grace costs less than a
+            bouquet—once, for life.</strong></p>
+
+        <div
+          style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; border: 1px solid rgba(201, 169, 97, 0.3);">
+          <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+            <strong style="color: var(--gold);">Your privacy is our business model.</strong> We charge fairly for a
+            premium product so we never have to monetize your personal wedding plans.
+          </p>
+          <p>No tracking. No ads. No hidden agendas. Just honest, elegant wedding planning that respects you.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- iOS Waitlist Section -->
-  <section class="waitlist" id="waitlist">
-    <div class="waitlist-container">
-      <h2>Be First on iOS</h2>
-      <p>Join thousands on the waitlist. Get exclusive early access, special perks, and updates on our iOS launch.</p>
 
-      <form class="waitlist-form" action="#" method="POST">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Join Waitlist</button>
-      </form>
-
-      <div class="waitlist-benefits">
-        <span class="waitlist-benefit">✓ Early access</span>
-        <span class="waitlist-benefit">✓ Exclusive features</span>
-        <span class="waitlist-benefit">✓ No spam, ever</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Privacy CTA Section -->
-  <section class="privacy-cta">
-    <div class="privacy-content">
-      <h2>Your Privacy Matters</h2>
-      <p>Unlike other wedding apps, we don't collect your data, show ads, or sell your information. Your wedding planning stays between you and your partner, exactly as it should be.</p>
-      <div class="privacy-badges">
-        <span class="badge">🚫 No Ads</span>
-        <span class="badge">🔒 Local-First</span>
-        <span class="badge">✓ Your Data</span>
-        <span class="badge">🛡️ No Tracking</span>
-      </div>
-      <a href="/privacy" class="btn btn-secondary" style="margin-top: 2rem; display: inline-flex;">Read Our Privacy Policy</a>
-    </div>
-  </section>
 
   <!-- Final CTA Section -->
-  <section class="final-cta">
-    <h2>Ready to Say Yes to Easy Planning?</h2>
-    <p>Join thousands of couples planning stress-free weddings. Just £6.99—once, for life.</p>
-    <div class="cta-buttons">
-      <a href="#" class="btn btn-primary">
-        <span>🤖</span>
-        <span>Get Started - £6.99 (Android)</span>
-      </a>
-      <a href="#waitlist" class="btn btn-secondary">
-        <span>📱</span>
-        <span>Join iOS Waitlist</span>
-      </a>
+  <section class="features-section" style="text-align: center; background: var(--sage); color: white;">
+    <div class="container">
+      <h2 style="color: white;">Ready to Say Yes to Easy Planning?</h2>
+      <p style="margin-bottom: 2rem;">Join thousands of couples planning stress-free weddings. Just £6.49—once, for
+        life.</p>
+      <div class="cta-group">
+        <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.weddingplanner" class="btn btn-primary"
+          target="_blank">
+          <span>🤖</span>
+          <span>Get Started - £6.49 (Android)</span>
+        </a>
+        <a href="#waitlist" class="btn btn-secondary">
+          <span>📱</span>
+          <span>Join iOS Waitlist</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Aisle & Grace</h4>
-        <p>Your wedding, your way.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Aisle & Grace</h4>
+          <p>Your wedding, your way.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#">Download</a>
+          <a href="/support">Support</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="mailto:support@aisleandgrace.app">Email Us</a>
+          <a href="https://www.instagram.com/aisle.and.grace?igsh=a2trM3M1Y2E5ZGo0" target="_blank">Instagram</a>
+        </div>
       </div>
 
-      <div class="footer-section">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#">Download</a>
-        <a href="/support">Support</a>
+      <div class="footer-bottom">
+        <p>&copy;
+          <script>document.write(new Date().getFullYear())</script> Aisle & Grace. All rights reserved.
+        </p>
       </div>
-
-      <div class="footer-section">
-        <h4>Legal</h4>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-      </div>
-
-      <div class="footer-section">
-        <h4>Connect</h4>
-        <a href="mailto:support@aisleandgrace.app">Email Us</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> Aisle & Grace. All rights reserved.</p>
     </div>
   </footer>
 </body>
+
 </html>
