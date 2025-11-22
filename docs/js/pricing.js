@@ -180,6 +180,7 @@ const DEFAULT_PRICING = PRICING_DATA['US'];
 
 // Timezone to country code mapping (privacy-friendly, no external API calls)
 const TIMEZONE_TO_COUNTRY = {
+  // Europe
   'Europe/London': 'GB',
   'Europe/Paris': 'FR',
   'Europe/Berlin': 'DE',
@@ -201,21 +202,56 @@ const TIMEZONE_TO_COUNTRY = {
   'Europe/Bucharest': 'RO',
   'Europe/Sofia': 'BG',
   'Europe/Zagreb': 'HR',
+  'Europe/Tallinn': 'EE',
+  'Europe/Riga': 'LV',
+  'Europe/Vilnius': 'LT',
+  'Europe/Zurich': 'CH',
+  'Europe/Luxembourg': 'LU',
+  'Europe/Monaco': 'MC',
+  'Europe/Bratislava': 'SK',
+  'Europe/Ljubljana': 'SI',
+  'Europe/Belgrade': 'RS',
+  'Europe/Kyiv': 'UA',
+  'Europe/Minsk': 'BY',
+  'Europe/Moscow': 'RU',
+  'Europe/Istanbul': 'TR',
+  'Europe/Reykjavik': 'IS',
+
+  // Americas
   'America/New_York': 'US',
   'America/Chicago': 'US',
   'America/Denver': 'US',
   'America/Los_Angeles': 'US',
+  'America/Phoenix': 'US',
+  'America/Anchorage': 'US',
   'America/Toronto': 'CA',
   'America/Vancouver': 'CA',
+  'America/Edmonton': 'CA',
+  'America/Halifax': 'CA',
   'America/Mexico_City': 'MX',
   'America/Sao_Paulo': 'BR',
   'America/Argentina/Buenos_Aires': 'AR',
   'America/Santiago': 'CL',
   'America/Bogota': 'CO',
   'America/Lima': 'PE',
+  'America/Caracas': 'VE',
+  'America/Montevideo': 'UY',
+  'America/Asuncion': 'PY',
+  'America/La_Paz': 'BO',
+  'America/Guayaquil': 'EC',
+  'America/Costa_Rica': 'CR',
+  'America/Panama': 'PA',
+  'America/Guatemala': 'GT',
+  'America/Managua': 'NI',
+  'America/El_Salvador': 'SV',
+  'America/Tegucigalpa': 'HN',
+  'America/Jamaica': 'JM',
+  'America/Havana': 'CU',
+  'America/Santo_Domingo': 'DO',
+
+  // Asia
   'Asia/Tokyo': 'JP',
   'Asia/Seoul': 'KR',
-  'Asia/Shanghai': 'CN',
   'Asia/Hong_Kong': 'HK',
   'Asia/Singapore': 'SG',
   'Asia/Bangkok': 'TH',
@@ -225,17 +261,75 @@ const TIMEZONE_TO_COUNTRY = {
   'Asia/Dubai': 'AE',
   'Asia/Riyadh': 'SA',
   'Asia/Tel_Aviv': 'IL',
-  'Asia/Istanbul': 'TR',
+  'Asia/Jerusalem': 'IL',
+  'Asia/Karachi': 'PK',
+  'Asia/Dhaka': 'BD',
+  'Asia/Kuala_Lumpur': 'MY',
+  'Asia/Taipei': 'TW',
+  'Asia/Ho_Chi_Minh': 'VN',
+  'Asia/Baku': 'AZ',
+  'Asia/Tbilisi': 'GE',
+  'Asia/Yerevan': 'AM',
+  'Asia/Baghdad': 'IQ',
+  'Asia/Kuwait': 'KW',
+  'Asia/Qatar': 'QA',
+  'Asia/Bahrain': 'BH',
+  'Asia/Muscat': 'OM',
+  'Asia/Amman': 'JO',
+  'Asia/Beirut': 'LB',
+  'Asia/Colombo': 'LK',
+  'Asia/Kathmandu': 'NP',
+  'Asia/Tashkent': 'UZ',
+  'Asia/Almaty': 'KZ',
+  'Asia/Bishkek': 'KG',
+  'Asia/Ulaanbaatar': 'MN',
+
+  // Oceania
   'Australia/Sydney': 'AU',
   'Australia/Melbourne': 'AU',
   'Australia/Brisbane': 'AU',
   'Australia/Perth': 'AU',
+  'Australia/Adelaide': 'AU',
   'Pacific/Auckland': 'NZ',
+  'Pacific/Fiji': 'FJ',
+
+  // Africa
   'Africa/Cairo': 'EG',
   'Africa/Johannesburg': 'ZA',
   'Africa/Lagos': 'NG',
-  'Africa/Nairobi': 'KE'
+  'Africa/Nairobi': 'KE',
+  'Africa/Casablanca': 'MA',
+  'Africa/Algiers': 'DZ',
+  'Africa/Tunis': 'TN',
+  'Africa/Accra': 'GH',
+  'Africa/Khartoum': 'SD',
+  'Africa/Addis_Ababa': 'ET',
+  'Africa/Dar_es_Salaam': 'TZ',
+  'Africa/Kampala': 'UG',
+  'Africa/Kigali': 'RW'
 };
+
+/**
+ * Safe localStorage wrapper to handle exceptions in private browsing
+ * @param {string} operation - 'get' or 'set'
+ * @param {string} key - Storage key
+ * @param {string} value - Value to set (for 'set' operation)
+ * @returns {string|null} Value for 'get' operation, null on error
+ */
+function safeLocalStorage(operation, key, value = null) {
+  try {
+    if (operation === 'get') {
+      return localStorage.getItem(key);
+    }
+    if (operation === 'set') {
+      localStorage.setItem(key, value);
+      return value;
+    }
+  } catch (e) {
+    console.warn('localStorage unavailable:', e.message);
+    return null;
+  }
+}
 
 /**
  * Detects the user's country code using privacy-friendly methods (no external APIs)
@@ -244,7 +338,7 @@ const TIMEZONE_TO_COUNTRY = {
 function detectCountryCode() {
   try {
     // Check if user has previously selected a country
-    const storedCountry = localStorage.getItem('userCountry');
+    const storedCountry = safeLocalStorage('get', 'userCountry');
     if (storedCountry && PRICING_DATA[storedCountry]) {
       return storedCountry;
     }
@@ -255,15 +349,15 @@ function detectCountryCode() {
       return TIMEZONE_TO_COUNTRY[timezone];
     }
 
-    // Method 2: Use browser language/locale
+    // Method 2: Use browser language/locale (improved to handle various formats)
     const language = navigator.language || navigator.userLanguage;
     if (language) {
-      const parts = language.split('-');
-      if (parts.length > 1) {
-        const countryCode = parts[1].toUpperCase();
-        if (PRICING_DATA[countryCode]) {
-          return countryCode;
-        }
+      // Handle both xx-YY and xx_YY formats, and complex formats like zh-Hans-CN
+      const parts = language.replace('_', '-').split('-');
+      // Get the last part which is typically the country code
+      const countryCode = parts[parts.length - 1].toUpperCase();
+      if (countryCode.length === 2 && PRICING_DATA[countryCode]) {
+        return countryCode;
       }
     }
 
@@ -299,22 +393,23 @@ function formatPriceText(pricing, includeRegion = true) {
  * @param {Object} pricing - Pricing object
  */
 function updatePagePricing(pricing) {
-  // Update all CTA buttons with pricing
-  const ctaButtons = document.querySelectorAll('.btn-primary span:last-child');
+  // Update all CTA buttons with pricing - using nth-child(2) for more robust selection
+  const ctaButtons = document.querySelectorAll('.btn-primary span:nth-child(2)');
   ctaButtons.forEach(button => {
-    if (button.textContent.includes('Get Started')) {
-      button.textContent = formatPriceText(pricing, true);
+    button.textContent = formatPriceText(pricing, true);
+  });
+
+  // Update the text in the final CTA section - more specific selector
+  const finalCtaSections = document.querySelectorAll('.features-section');
+  finalCtaSections.forEach(section => {
+    const paragraph = section.querySelector('p[style*="margin-bottom"]');
+    if (paragraph && paragraph.textContent.includes('Just')) {
+      const priceDisplay = `${pricing.symbol}${pricing.price}`;
+      paragraph.textContent = `Join thousands of couples planning stress-free weddings. Just ${priceDisplay}—once, for life.`;
     }
   });
 
-  // Update the text in the final CTA section
-  const finalCtaText = document.querySelector('.features-section p');
-  if (finalCtaText && finalCtaText.textContent.includes('Just')) {
-    const priceDisplay = `${pricing.symbol}${pricing.price}`;
-    finalCtaText.textContent = `Join thousands of couples planning stress-free weddings. Just ${priceDisplay}—once, for life.`;
-  }
-
-  console.log(`Pricing updated to ${pricing.symbol}${pricing.price} (${pricing.currency}) for country`);
+  console.log(`Pricing updated to ${pricing.symbol}${pricing.price} (${pricing.currency})`);
 }
 
 /**
@@ -332,9 +427,9 @@ function initializePricing() {
     // Update page with new pricing
     updatePagePricing(pricing);
 
-    // Store in localStorage for consistency
-    localStorage.setItem('userCountry', countryCode);
-    localStorage.setItem('userPricing', JSON.stringify(pricing));
+    // Store in localStorage for consistency (with error handling)
+    safeLocalStorage('set', 'userCountry', countryCode);
+    safeLocalStorage('set', 'userPricing', JSON.stringify(pricing));
   } catch (error) {
     console.error('Error initializing pricing:', error);
     // Fallback to default pricing
