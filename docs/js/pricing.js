@@ -162,7 +162,7 @@ const PRICING_DATA = {
   'UG': { price: '4.63', currency: 'USD', symbol: '$', vat: '18%' },
   'UA': { price: '199.99', currency: 'UAH', symbol: '₴', vat: '20%' },
   'AE': { price: '14.99', currency: 'AED', symbol: 'د.إ', vat: '5%' },
-  'GB': { price: '3.59', currency: 'GBP', symbol: '£', vat: '20%' },
+  'GB': { price: '0.99', currency: 'GBP', symbol: '£', vat: '20%' },
   'US': { price: '3.99', currency: 'USD', symbol: '$', vat: 'No VAT' },
   'UY': { price: '3.92', currency: 'USD', symbol: '$', vat: 'No VAT' },
   'UZ': { price: '4.39', currency: 'USD', symbol: '$', vat: '12%' },
