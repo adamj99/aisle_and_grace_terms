@@ -1,9 +1,26 @@
+// Mobile menu toggle
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('menuOverlay');
+  if (!menu || !overlay) return;
+  const isOpen = menu.classList.contains('open');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+}
+
+// iOS waitlist form
+function handleWaitlist(event) {
+  event.preventDefault();
+  const form = event.target;
+  form.innerHTML = '<p class="waitlist-success">✓ You\'re on the list! We\'ll let you know when iOS launches.</p>';
+}
+
 // Mobile content expansion
 function expandSection(button, sectionType) {
   const section = button.closest('section');
   section.classList.add('expanded');
 
-  // Add fade-in animation to newly revealed items
   button.style.opacity = '0';
   button.style.transform = 'scale(0.9)';
 
@@ -11,9 +28,10 @@ function expandSection(button, sectionType) {
     button.style.display = 'none';
   }, 300);
 
-  // Smooth scroll to show newly revealed content
   setTimeout(() => {
-    const firstHiddenElement = section.querySelector('.feature-card:nth-child(7), .testimonial-card:nth-child(4), .value-item:nth-child(3)');
+    const firstHiddenElement = section.querySelector(
+      '.feature-card:nth-child(7), .testimonial-card:nth-child(4), .value-item:nth-child(3)'
+    );
     if (firstHiddenElement) {
       firstHiddenElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
@@ -26,17 +44,13 @@ const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
-
-  if (currentScroll > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (header) {
+    header.classList.toggle('scrolled', currentScroll > 50);
   }
-
   lastScroll = currentScroll;
 });
 
-// Add smooth reveal on scroll for sections (optional enhancement)
+// Section header reveal on scroll
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -51,13 +65,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe section headers
 document.addEventListener('DOMContentLoaded', () => {
-  const sectionHeaders = document.querySelectorAll('.section-header');
-  sectionHeaders.forEach(header => {
-    header.style.opacity = '0';
-    header.style.transform = 'translateY(20px)';
-    header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(header);
+  document.querySelectorAll('.section-header').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
   });
 });
