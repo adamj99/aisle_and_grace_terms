@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
@@ -60,34 +60,111 @@
           <a href="#reviews">Reviews</a>
           <a href="/privacy">Privacy</a>
         </div>
+        <button class="menu-toggle" aria-label="Open menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </div>
   </header>
 
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <a href="#" class="logo" onclick="toggleMobileMenu()">
+        <img src="./images/icon_512.png" alt="Aisle & Grace">
+        <span>Aisle & Grace</span>
+      </a>
+      <button class="menu-close" aria-label="Close menu" onclick="toggleMobileMenu()">✕</button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="#features" onclick="toggleMobileMenu()">Features</a>
+      <a href="#how-it-works" onclick="toggleMobileMenu()">How it Works</a>
+      <a href="#reviews" onclick="toggleMobileMenu()">Reviews</a>
+      <a href="/privacy" onclick="toggleMobileMenu()">Privacy</a>
+    </nav>
+    <div class="mobile-menu-cta">
+      <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.app.aisle_and_grace"
+        class="btn btn-primary" target="_blank" onclick="toggleMobileMenu()">
+        <span>🤖</span>
+        <span>Get Started - £0.99 (Android)</span>
+      </a>
+      <a href="#waitlist" class="btn btn-secondary" onclick="toggleMobileMenu()">
+        <span>📱</span>
+        <span>Join iOS Waitlist</span>
+      </a>
+    </div>
+  </div>
+  <div class="menu-overlay" id="menuOverlay" onclick="toggleMobileMenu()"></div>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-subtitle">AI-Powered Wedding Planning</div>
-        <h1>Planning That Feels Personal</h1>
-        <p>Get smart recommendations tailored to your unique vision. Let AI handle your seating chart in seconds. From
-          style preferences to table assignments, our AI guides you through every decision—without ads, tracking, or
-          overwhelm.</p>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-subtitle">AI-Powered Wedding Planning</div>
+          <h1>Planning That Feels <em>Personal</em></h1>
+          <p>Get smart recommendations tailored to your unique vision. Let AI handle your seating chart in seconds. From
+            style preferences to table assignments, our AI guides you through every decision—without ads, tracking, or
+            overwhelm.</p>
 
-        <div class="cta-group">
-          <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.app.aisle_and_grace"
-            class="btn btn-primary" target="_blank">
-            <span>🤖</span>
-            <span>Get Started - £0.99 (Android)</span>
-          </a>
-          <a href="#waitlist" class="btn btn-secondary">
-            <span>📱</span>
-            <span>Join iOS Waitlist</span>
-          </a>
+          <div class="cta-group">
+            <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.app.aisle_and_grace"
+              class="btn btn-primary" target="_blank">
+              <span>🤖</span>
+              <span>Get Started - £0.99 (Android)</span>
+            </a>
+            <a href="#waitlist" class="btn btn-secondary">
+              <span>📱</span>
+              <span>Join iOS Waitlist</span>
+            </a>
+          </div>
+
+          <div class="one-time-badge">
+            <span>✓</span> One-time payment. Lifetime access. Start planning your perfect day.
+          </div>
         </div>
 
-        <div class="one-time-badge">
-          One-time payment. Lifetime access. Start planning your perfect day.
+        <div class="hero-visual">
+          <div class="phone-stack">
+            <div class="phone-frame phone-frame--back">
+              <img src="./images/Screenshot_1762289974.png" alt="AI-Powered Table Assignment">
+            </div>
+            <div class="phone-frame phone-frame--front">
+              <img src="./images/Screenshot_20251024-081401.png" alt="Wedding Planning Dashboard">
+            </div>
+            <div class="phone-frame phone-frame--side">
+              <img src="./images/Screenshot_20251024-081443.png" alt="Budget Tracker">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">4.9 ★</span>
+          <span class="stat-label">App Rating</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">£0.99</span>
+          <span class="stat-label">One-time payment</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">Zero</span>
+          <span class="stat-label">Ads or tracking</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Lifetime access</span>
         </div>
       </div>
     </div>
@@ -103,7 +180,6 @@
     </div>
 
     <div class="screenshots-scroll">
-      <!-- Images will be updated here -->
       <div class="screenshot-item">
         <img src="./images/Screenshot_20251024-081401.png" alt="Wedding Planning Dashboard">
       </div>
@@ -143,9 +219,45 @@
     </div>
   </section>
 
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>Start Planning in Minutes</h2>
+        <p>Everything you need, set up in three simple steps</p>
+      </div>
 
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-icon-wrap">🎨</div>
+          <h3>Set Your Style</h3>
+          <p>Tell us your aesthetic—modern minimalist, classic romance, rustic charm, or anything in between. Your
+            style becomes the foundation for every AI recommendation.</p>
+        </div>
 
+        <div class="step-connector"></div>
 
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-icon-wrap">📋</div>
+          <h3>Plan Everything</h3>
+          <p>Manage your guest list, track your budget, organise vendors, and build your perfect day timeline—all in
+            one beautiful, private app.</p>
+        </div>
+
+        <div class="step-connector"></div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-icon-wrap">✨</div>
+          <h3>Let AI Guide You</h3>
+          <p>Get smart, personalised tips right when you need them. Let AI auto-assign your entire seating chart in
+            seconds—no more headaches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Features Section -->
   <section class="features-section" id="features">
@@ -218,8 +330,6 @@
           <p>Build the perfect schedule from first look to last dance. Share it with your vendors and wedding party in
             one tap.</p>
         </div>
-
-
 
         <div class="feature-card">
           <div class="feature-icon">🌍</div>
@@ -341,8 +451,6 @@
     </div>
   </section>
 
-
-
   <!-- Value Justification Section -->
   <section class="value-section">
     <div class="container">
@@ -381,29 +489,26 @@
         </div>
       </div>
       <button class="show-more-btn" onclick="expandSection(this, 'value')">See All Benefits</button>
-
-
     </div>
   </section>
 
   <!-- Why It's Paid Section -->
-  <section class="features-section" style="background: #1a1a1a; color: white;">
+  <section class="why-paid-section">
     <div class="container">
       <div class="section-header">
-        <div style="font-size: 3rem; margin-bottom: 1.5rem;">💐</div>
-        <h2 style="color: white;">Why Aisle & Grace Isn't Free</h2>
-        <p style="color: rgba(255,255,255,0.8);">Free apps make money from your data—selling it to vendors, showing you
-          ads, or pushing sponsored content. We don't do any of that.</p>
+        <div class="why-paid-flower">💐</div>
+        <h2>Why Aisle & Grace Isn't Free</h2>
+        <p>Free apps make money from your data—selling it to vendors, showing you ads, or pushing sponsored content.
+          We don't do any of that.</p>
       </div>
 
-      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.25rem; margin-bottom: 2rem;">That's why <strong>Aisle & Grace costs less than a
-            bouquet—once, for life.</strong></p>
+      <div class="why-paid-content">
+        <p class="why-paid-lead">That's why <strong>Aisle & Grace costs less than a bouquet—once, for life.</strong>
+        </p>
 
-        <div
-          style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 16px; border: 1px solid rgba(201, 169, 97, 0.3);">
-          <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-            <strong style="color: var(--gold);">Your privacy is our business model.</strong> We charge fairly for a
+        <div class="why-paid-box">
+          <p>
+            <strong class="highlight-gold">Your privacy is our business model.</strong> We charge fairly for a
             premium product so we never have to monetize your personal wedding plans.
           </p>
           <p>No tracking. No ads. No hidden agendas. Just honest, elegant wedding planning that respects you.</p>
@@ -412,21 +517,39 @@
     </div>
   </section>
 
-
+  <!-- iOS Waitlist Section -->
+  <section class="waitlist-section" id="waitlist">
+    <div class="container">
+      <div class="waitlist-inner">
+        <div class="waitlist-icon">📱</div>
+        <h2>iOS Is Coming</h2>
+        <p>We're bringing Aisle & Grace to iPhone. Join the waitlist to be the first to know—and receive an exclusive
+          early-bird discount at launch.</p>
+        <form class="waitlist-form" onsubmit="handleWaitlist(event)">
+          <div class="waitlist-input-group">
+            <input type="email" placeholder="your@email.com" required autocomplete="email" />
+            <button type="submit" class="btn btn-primary">
+              <span>Notify Me</span>
+            </button>
+          </div>
+          <p class="waitlist-note">No spam. Just one email when iOS launches.</p>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <!-- Final CTA Section -->
-  <section class="features-section" style="text-align: center; background: var(--sage); color: white;">
+  <section class="final-cta-section">
     <div class="container">
-      <h2 style="color: white;">Ready to Say Yes to Easy Planning?</h2>
-      <p style="margin-bottom: 2rem;">Join thousands of couples planning stress-free weddings. Just £0.99—once, for
-        life.</p>
+      <h2>Ready to Say Yes to Easy Planning?</h2>
+      <p>Join thousands of couples planning stress-free weddings. Just £0.99—once, for life.</p>
       <div class="cta-group">
         <a href="https://play.google.com/store/apps/details?id=com.aisleandgrace.app.aisle_and_grace" class="btn btn-primary"
           target="_blank">
           <span>🤖</span>
           <span>Get Started - £0.99 (Android)</span>
         </a>
-        <a href="#waitlist" class="btn btn-secondary">
+        <a href="#waitlist" class="btn btn-secondary btn-secondary--light">
           <span>📱</span>
           <span>Join iOS Waitlist</span>
         </a>
